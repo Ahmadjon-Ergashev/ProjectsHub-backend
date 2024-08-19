@@ -12,6 +12,7 @@ class Company(models.Model):
     email = models.EmailField()
     phone = models.CharField(max_length=15)
     address = models.TextField()
+    is_verified = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

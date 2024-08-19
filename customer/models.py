@@ -11,6 +11,8 @@ class Customer(models.Model):
     address = models.TextField()
     avatar = models.ImageField(upload_to="customers/avatars/")
     banner = models.ImageField(upload_to="customers/avatars/banner/")
+    bio = models.TextField(blank=True, null=True)
+    is_verified = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

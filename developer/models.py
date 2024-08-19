@@ -27,6 +27,7 @@ class Developer(models.Model):
     cv = models.FileField(upload_to="developers/cv/")
     skills = models.ManyToManyField(Skill, related_name="developers")
     projects = models.ManyToManyField("project.Project", related_name="developers")
+    is_verified = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -43,6 +44,7 @@ class Team(models.Model):
     team_leader = models.ForeignKey(Developer, on_delete=models.CASCADE)
     members = models.ManyToManyField(Developer, related_name="teams")
     projects = models.ManyToManyField("project.Project", related_name="teams")
+    is_verified = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

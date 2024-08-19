@@ -24,6 +24,8 @@ class Project(models.Model):
     tags = models.ManyToManyField(Tag, related_name="projects")
     developer = models.ForeignKey("developer.Developer", on_delete=models.SET_NULL, related_name="developer_projects", blank=True, null=True)
     team = models.ForeignKey("developer.Team", on_delete=models.SET_NULL, related_name="team_projects", blank=True, null=True)
+    cost = models.DecimalField(max_digits=10, decimal_places=2)
+    is_verified = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
